@@ -5,11 +5,19 @@
         Console.WriteLine("Welcome to Rock Paper Scissors\n" +
             "Please pick one of the three options:\n" +
             "1: Rock, 2: Paper, 3: Scissors");
-    a:
-        int userInput = GetUserInput();
-        if (userInput == 0) { Error(); goto a; };
-        int computerInput = ComputerInput();
-        Console.WriteLine(Result(userInput, computerInput));
+        int userInput;
+        while (true)
+        {
+            userInput = GetUserInput();
+            if (userInput == 0)
+            {
+                Error();
+                continue; // This will restart the loop
+            }
+            break; //This will break out of the loop if userInput != 0
+        }
+            int computerInput = ComputerInput();
+            Console.WriteLine(Result(userInput, computerInput));
     }
     private static int GetUserInput()
     {
